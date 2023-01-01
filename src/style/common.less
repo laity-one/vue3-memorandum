@@ -1,0 +1,77 @@
+//reset  默认样式 关闭
+body, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, input, select, textarea, button, th, td, img {
+  margin: 0;
+  padding: 0;
+}
+// 鼠标变小手
+.c-p {
+  cursor: pointer;
+}
+//超出隐藏用三个点结尾
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 链接无下划线 hover有下划线
+.hover-link(){
+  text-decoration: none;
+  & hover {
+      text-decoration: underline;
+  }
+}
+
+/**
+    padding margin 循环
+*/
+each(range(10),{
+  .pt-@{value}{
+      padding-top: (@value * 5px);
+  }
+  .pl-@{value}{
+      padding-left: (@value * 5px);
+  }
+  .pr-@{value}{
+      padding-right: (@value * 5px);
+  }
+  .pb-@{value}{
+      padding-bottom: (@value * 5px);
+  }
+  .p-@{value}{
+      padding: (@value * 5px);
+  }
+  .m-@{value}{
+      margin: (@value * 5px);
+  }
+  .mt-@{value}{
+      margin-top: (@value * 5px);
+  }
+  .ml-@{value}{
+      margin-left: (@value * 5px);
+  }
+  .mr-@{value}{
+      margin-right: (@value * 5px);
+  }
+  .mb-@{value}{
+      margin-bottom: (@value * 5px);
+  }
+})
+
+/**
+  font-size
+*/
+.fz(@fz){
+  font-size: @fz;
+}
+/**
+  百分比随意设置  宽 高
+*/
+.www(@n, @i: 1) when (@i <=@n) {
+.www-@{i} {
+  width: @i*1% !important;
+}
+ .hhh-@{i} {
+  height: @i*1% !important;
+}
+.www(@n, (@i + 1));
+}
