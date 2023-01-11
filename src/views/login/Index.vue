@@ -3,7 +3,81 @@
 </script>
 
 <template>
-  <div></div>
+  <div class="box">
+    <!-- style="width:400px; height:300px" -->
+    <div class="container">
+      <div class="item item-1">1</div>
+      <div class="item item-2">2</div>
+      <div class="item item-3">3</div>
+      <div class="item item-4">4</div>
+      <div class="item item-5">5</div>
+      <div class="item item-6">6</div>
+      <div class="item item-7">7</div>
+      <div class="item item-8">8</div>
+      <div class="item item-9">9</div>
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less">
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 40%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-rows: repeat(5, 100px);
+  border: 1px solid black;
+  justify-content: center;
+  align-content: center;
+  grid-auto-flow: row dense;
+}
+.item {
+  font-size: 18px;
+  border: 1px solid black;
+  // border: 1px solid #e5e4e9;
+}
+
+.item-1 {
+  background-color: #ef342a;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.item-2 {
+  background-color: #f68f26;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.item-3 {
+  background-color: #4ba946;
+}
+
+.item-4 {
+  background-color: #0376c2;
+}
+
+.item-5 {
+  background-color: #c077af;
+}
+
+.item-6 {
+  background-color: #f8d29d;
+}
+
+.item-7 {
+  background-color: #b5a87f;
+}
+
+.item-8 {
+  background-color: #d0e4a9;
+}
+
+.item-9 {
+  background-color: #4dc7ec;
+}
+</style>
