@@ -22,7 +22,14 @@ export default defineConfig({
     // 允许跨域
     cors: true,
     // 自定义代理规则
-    proxy: {},
+    proxy: {
+      "/api": {
+        // target: 'https://api.pingping6.com/tools/baidutop/',
+        target: "http://127.0.0.1:4523/m1/1830174-0-default",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
   build: {
     // 设置最终构建的浏览器兼容目标

@@ -30,6 +30,8 @@ module.exports = defineConfig({
     "plugin:prettier/recommended",
   ],
   rules: {
+    // 忽略 any 的类型检查
+    "@typescript-eslint/no-explicit-any": ["off"],
     // 让.eslintrc.js文件略过@typescript-eslint/no-var-requires检查
     "@typescript-eslint/no-var-requires": 0,
     // 禁止使用多余的包
