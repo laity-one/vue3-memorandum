@@ -1,6 +1,9 @@
 import { defineStore } from "pinia";
 // import Api from '../enums/http'
 
+/**
+ * 定义传给后段的参数
+ */
 interface loginStore {
   account: number;
   password: string;

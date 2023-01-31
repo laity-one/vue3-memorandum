@@ -1,3 +1,5 @@
+import BackstageChild from "./BackstageChild";
+
 export default [
   {
     // grid网格布局
@@ -15,6 +17,7 @@ export default [
     // 后台管理页面
     path: "/backstage",
     name: "backstage",
+    children: BackstageChild,
     component: () => import("@/views/home/backstage/Index.vue"),
   },
   {

@@ -21,9 +21,10 @@ export interface response {
 /**
  * 菜单项
  */
-export interface MenuItem {
+export default interface MenuItem {
   title: string;
   code: string;
   icon?: string;
   children?: MenuItem[];
+  path: string;
 }
