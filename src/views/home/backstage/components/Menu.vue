@@ -5,28 +5,36 @@
     background-color="#001529"
     text-color="#a6adb4"
     active-text-color="#fff"
-    :collapse="false"
-    :default-opened="true"
+    :collapse="isCollapse"
+    :default-active="activeIndex"
   >
-    <!-- 
-    :default-openeds="activeOpen"
-    @open="handleOpen" -->
-    <MenuItem v-for="(item, index) in data" :key="index" :item="item" />
+    <MenuItem v-for="(item, index) in menuList" :key="index" :item="item" />
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
+import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
 import MenuItem from "./MenuItem.vue";
 import menuMock from "../../../../mock/MenuMock";
 import menu from "../../../../api/menu";
+import menuStore from "../../../../store/modules/MenuStore";
 
-const data = ref(menuMock);
-// console.log(data.value);
-// const data = awa
+const router = useRouter();
+const menuSores = menuStore();
+const menusMock = ref(menuMock);
+const menuList = ref();
+const { isCollapse, activeIndex } = storeToRefs(menuSores);
+
 onMounted(async () => {
-  const menuData = await menu.getMenu();
-  console.log(menuData);
+  const { data } = await menu.getMenu().catch((err) => err);
+  menuList.value = data || menusMock;
+  data.forEach((item: any) => {
+    if (item.path === router.currentRoute.value.path) {
+      menuSores.changeActiveIndex(item.code);
+    }
+  });
 });
 </script>
 

@@ -48,7 +48,7 @@ class HttpRequest {
     instance.interceptors.response.use(
       (res) => {
         const { data } = res;
-        console.log("返回数据处理", res);
+        // console.log("返回数据处理", res);
         return data;
       },
       (error: any) => {

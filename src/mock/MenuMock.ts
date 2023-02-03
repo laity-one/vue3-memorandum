@@ -1,28 +1,28 @@
 export default [
   {
-    title: "工作台",
-    code: "1",
-    path: "/workBench",
-    icon: "Menu",
+    "title": "首页",
+    "code": "1",
+    "path": "/workBench",
+    "icon": "House",
   },
   {
-    title: "Echarts图表",
-    code: "2",
-    path: "",
-    icon: "Coin",
+    "title": "Echarts图表",
+    "code": "2",
+    "path": "/echarts",
+    "icon": "Coin",
   },
   {
-    title: "笔记",
-    code: "3",
-    icon: "Menu",
-    path: "",
-    children: [
+    "title": "笔记",
+    "code": "3",
+    "icon": "Menu",
+    "path": "",
+    "children": [
       {
-        title: "grid",
-        path: "grid",
-        code: "3-1",
-        icon: "User",
+        "title": "grid",
+        "path": "/grid",
+        "code": "3-1",
+        "icon": "User",
       },
     ],
   },
-];
+]
