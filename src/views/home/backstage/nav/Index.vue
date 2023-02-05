@@ -8,6 +8,12 @@
       <UserDropdown />
     </el-col>
   </el-row>
+  <!-- <el-divider /> -->
+  <el-row class="pl-5">
+    <el-col :span="24">
+      <Tabs />
+    </el-col>
+  </el-row>
 </template>
 
 <script lang="ts" setup>
@@ -15,6 +21,7 @@ import { storeToRefs } from "pinia";
 import Hamburger from "./Hamburger.vue";
 import Breadcrumb from "./Breadcrumb.vue";
 import UserDropdown from "./UserDropdown.vue";
+import Tabs from "./Tabs.vue";
 import menuStore from "../../../../store/modules/MenuStore";
 
 const menuSores = menuStore();
@@ -26,7 +33,7 @@ const { isCollapse } = storeToRefs(menuSores);
   margin: 0 !important;
 }
 .nav {
-  padding: 10px;
+  padding: 5px 0;
   .hamburger-container {
     float: left;
     cursor: pointer;
