@@ -22,7 +22,7 @@ import Nav from "./nav/Index.vue";
 
 <style scoped lang="less">
 .el-header {
-  height: 71px;
+  height: 85px;
   background: #fff;
   overflow: hidden;
   position: relative;

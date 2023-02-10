@@ -3,16 +3,18 @@
     v-model="editableTabsValue"
     type="card"
     class="demo-tabs"
-    :closable="editableTabsValue !== '1'"
     @tab-remove="removeTab"
   >
     <el-tab-pane
       v-for="item in editableTabs"
       :key="item.id"
       :label="item.title"
+      :closable="item.id !== '1'"
       :name="item.name"
     >
-      {{ item.name }}
+      <template #label>
+        <span>{{ item.name }}+11</span>
+      </template>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -26,16 +28,24 @@ const editableTabs = ref([
   {
     name: "首页",
     title: "首页",
+    path: "/workBench",
     id: "1",
+    query: "",
   },
   {
     name: "ces",
+    path: "/echarts",
     title: "ces",
+    query: "",
     id: "2",
   },
 ]);
 const router = useRouter();
+console.log(editableTabsValue.value);
 
+const goToTab = (val: any) => {
+  console.log(val);
+};
 const removeTab = () => {
   //
 };
@@ -50,6 +60,10 @@ const removeTab = () => {
 }
 
 .el-tabs {
-  --el-tabs-header-height: 30px;
+  --el-tabs-header-height: 45px;
+}
+.el-tabs__item:focus-visible {
+  box-shadow: none !important;
+  border-radius: 3px;
 }
 </style>

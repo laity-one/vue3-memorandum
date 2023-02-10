@@ -34,6 +34,7 @@ const { isCollapse } = storeToRefs(menuSores);
 }
 .nav {
   padding: 5px 0;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   .hamburger-container {
     float: left;
     cursor: pointer;
