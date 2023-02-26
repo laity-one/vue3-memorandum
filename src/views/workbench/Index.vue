@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
+import userStore from "@/store/modules/UserStore";
 
-defineProps<{ msg: string }>();
-// let name =  ref ()
-
+const user = userStore();
+const { userMes } = storeToRefs(user);
 const count = ref(0);
 </script>
 
@@ -11,9 +12,11 @@ const count = ref(0);
   <h1>首页</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button v-permission="['admin']" type="button" @click="count++">
+      count is {{ count }}
+    </button>
     <p>
-      Edit
+      {{ userMes }}
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
   </div>

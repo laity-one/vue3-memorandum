@@ -1,5 +1,25 @@
 //reset  默认样式 关闭
-body, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, input, select, textarea, button, th, td, img {
+body,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+select,
+textarea,
+button,
+th,
+td,
+img {
   margin: 0;
   padding: 0;
 }
@@ -17,7 +37,7 @@ body, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, input, select, textarea
 .hover-link {
   text-decoration: none;
   & hover {
-      text-decoration: underline;
+    text-decoration: underline;
   }
 }
 
@@ -100,12 +120,18 @@ each(range(100),{
   .mb-@{value}{
       margin-bottom: (@value * 1px);
   }
+  .w-@{value}{
+    width: (@value * 1%);
+  }
+  .h-@{value}{
+   height: (@value * 1%);
+  }
 })
 
 /**
   font-size
 */
-.fz(@fz){
+.fz(@fz) {
   font-size: @fz;
 }
 /**
@@ -115,8 +141,8 @@ each(range(100),{
   .www-@{i} {
     width: @i*1% !important;
   }
- .hhh-@{i} {
+  .hhh-@{i} {
     height: @i*1% !important;
   }
-.www(@n, (@i + 1));
+  .www(@n, (@i + 1));
 }

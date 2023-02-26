@@ -15,6 +15,13 @@ if (env === "production") {
   console.log("本地环境");
   target = "/api";
 }
+declare module "axios" {
+  interface AxiosResponse<T = any> {
+    code: null;
+    // 这里追加你的参数
+  }
+  export function create(config?: AxiosRequestConfig): AxiosInstance;
+}
 
 class HttpRequest {
   // constructor() {

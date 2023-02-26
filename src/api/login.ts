@@ -1,16 +1,13 @@
-/**
- * 全局接口路径 放在一起 方便维护
- */
 import http from "../utils/request";
+import { userLogin } from "@/interface/modules/User";
 
 export enum url {
-  menu = "/api/menu",
+  login = "/api/login",
 }
-export default {
-  getMenu: () => {
-    return http.request({
-      url: url.menu,
-      method: "get",
-    });
-  },
+export const toLogin = (data: userLogin) => {
+  return http.request({
+    url: url.login,
+    method: "post",
+    data,
+  });
 };

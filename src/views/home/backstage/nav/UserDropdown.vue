@@ -29,7 +29,7 @@ const goOut = () => {
     type: "warning",
     closeOnClickModal: false,
   }).then(() => {
-    // 784
+    router.push("/login");
     ElMessage.success("成功！");
   });
 };

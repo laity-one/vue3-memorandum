@@ -5,5 +5,5 @@ export interface userLogin {
   name: string;
   passWord: string;
   code: string;
-  key: string;
+  key?: string;
 }

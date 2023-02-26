@@ -17,19 +17,17 @@ import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import MenuItem from "./MenuItem.vue";
-import menuMock from "../../../../mock/MenuMock";
-import menu from "../../../../api/menu";
-import menuStore from "../../../../store/modules/MenuStore";
+import menu from "@/api/menu";
+import menuStore from "@/store/modules/MenuStore";
 
 const router = useRouter();
 const menuSores = menuStore();
-const menusMock = ref(menuMock);
 const menuList = ref();
 const { isCollapse, activeIndex } = storeToRefs(menuSores);
 
 onMounted(async () => {
   const { data } = await menu.getMenu().catch((err) => err);
-  menuList.value = data || menusMock;
+  menuList.value = data;
   data.forEach((item: any) => {
     if (item.path === router.currentRoute.value.path) {
       menuSores.changeActiveIndex(item.code);
