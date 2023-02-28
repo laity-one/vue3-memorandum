@@ -1,4 +1,4 @@
-import BackstageChild from "./BackstageChild"
+import BackstageChild from "./BackstageChild";
 
 export default [
   {
@@ -14,12 +14,16 @@ export default [
     component: () => import("@/views/home/Index.vue"),
   },
   {
+    path: "/",
+    redirect: "/login",
+  },
+  {
     // 后台管理页面
     path: "/backstage",
     name: "backstage",
-    redirect: '/workBench',
+    redirect: "/workBench",
     meta: {
-      title: '首页'
+      title: "首页",
     },
     children: BackstageChild,
     component: () => import("@/views/home/backstage/Index.vue"),
@@ -30,4 +34,4 @@ export default [
     name: "404",
     component: () => import("@/views/home/Index.vue"),
   },
-]
+];

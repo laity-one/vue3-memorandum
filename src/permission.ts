@@ -1,6 +1,6 @@
 import NProgress from "nprogress";
 import router from "./router";
-// import useStore from './store/modules/UserStore'
+import useStore from "./store/modules/UserStore";
 import { getToken } from "./utils/auth";
 import "nprogress/nprogress.css";
 
@@ -12,17 +12,26 @@ const whiteList = ["/login"];
 // const router = createRouter({ ... })
 
 router.beforeEach((to, from, next) => {
+  const use: any = useStore();
   NProgress.start();
   const token = getToken();
   if (token) {
-    next();
+    if (to.path === "/login") {
+      const routerPath: any = {
+        1: "/grid", // 用户页面
+        2: "/backstage", // 后台管理页面
+      };
+      next({ path: routerPath[use.userMes.jumpType] });
+      NProgress.done();
+    } else {
+      next();
+    }
   } else if (whiteList.indexOf(to.path) !== -1) {
-    next();
-  } else {
-    next();
-    NProgress.done();
-  }
-  return false;
+      next();
+    } else {
+      next({ path: "/login" });
+      NProgress.done();
+    }
 });
 
 router.afterEach(() => {

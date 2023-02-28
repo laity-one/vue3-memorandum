@@ -24,17 +24,17 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.validate(async (valid) => {
     if (valid) {
-      const loginMes = await toLogin(formLabelAlign);
-      if (loginMes.code !== 200) {
+      const { data, code } = await toLogin(formLabelAlign);
+      if (code !== 200) {
         return;
       }
-      user.setUserMessage(loginMes.data);
+      user.setUserMessage(data);
       const routerPath: any = {
         1: "/grid", // 用户页面
         2: "/backstage", // 后台管理页面
       };
       router.push({
-        path: routerPath[loginMes.data.jumpType],
+        path: routerPath[data.jumpType],
       });
     }
   });

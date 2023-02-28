@@ -18,6 +18,10 @@
 <script lang="ts" setup>
 import Menu from "./components/Menu.vue";
 import Nav from "./nav/Index.vue";
+import userStore from "@/store/modules/UserStore";
+
+const user = userStore();
+user.setUserInfo();
 </script>
 
 <style scoped lang="less">

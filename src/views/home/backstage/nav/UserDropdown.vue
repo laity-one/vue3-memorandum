@@ -16,8 +16,10 @@
 <script lang="ts" setup>
 import { ElMessage, ElMessageBox } from "element-plus";
 import { useRouter } from "vue-router";
+import userStore from "@/store/modules/UserStore";
 
 const router = useRouter();
+const user = userStore();
 
 const goUserMes = () => {
   router.push("/workBench");
@@ -29,6 +31,7 @@ const goOut = () => {
     type: "warning",
     closeOnClickModal: false,
   }).then(() => {
+    user.userLogOut();
     router.push("/login");
     ElMessage.success("成功！");
   });

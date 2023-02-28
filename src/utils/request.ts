@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import { getToken } from "@/utils/auth";
 
 /**
  * 全局环境变量配置
@@ -18,7 +19,6 @@ if (env === "production") {
 declare module "axios" {
   interface AxiosResponse<T = any> {
     code: null;
-    // 这里追加你的参数
   }
   export function create(config?: AxiosRequestConfig): AxiosInstance;
 }
@@ -27,13 +27,13 @@ class HttpRequest {
   // constructor() {
 
   // }
-
   getInsideConfig() {
     const config = {
       baseURL: target,
       headers: {
         "Content-Type": "application/json;charset=utf-8",
         "X-Requested-With": "XMLHttpRequest",
+        Authorization: getToken(),
       },
     };
     return config;
